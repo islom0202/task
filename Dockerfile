@@ -22,7 +22,7 @@ FROM openjdk:21-jdk
 WORKDIR /app
 
 # Copy the built JAR from the previous stage
-COPY libs/Task-0.0.1-SNAPSHOT.jar testapp.jar
+COPY build/libs/Task-0.0.1-SNAPSHOT.jar testapp.jar
 
 # Expose port
 EXPOSE 9092
