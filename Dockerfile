@@ -3,7 +3,7 @@ FROM openjdk:21-jdk AS builder
 
 # Set the working directory
 WORKDIR /app
-
+#"C:\Users\user\Downloads\task.pem"
 # Copy only the Gradle wrapper and build files
 COPY gradle/ gradle/
 COPY build.gradle settings.gradle gradlew ./
