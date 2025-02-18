@@ -27,5 +27,4 @@ jobs:
 
       - name: Build app
         run: |
-          ./gradlew clean
-          ./gradlew build --no-daemon --console=plain
+          ./gradlew clean build
