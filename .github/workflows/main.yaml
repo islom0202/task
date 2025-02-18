@@ -29,25 +29,25 @@ jobs:
         run: ./gradlew clean build -x test
 
 
-#      - name: Build docker image
-#        uses: docker/build-push-action@v3
-#        with:
-#          context: .
-#          dockerfile: Dockerfile
-#          push: false
-#          tags: ${{secret.DOCKER_HUB_USERNAME}}/test-task:1.0
-#
-#
-#      - name: Login to dockerhub
-#        uses: docker/login-action@v2
-#        with:
-#          username: ${{secret.DOCKER_HUB_USERNAME}}
-#          password: ${{secret.DOCKER_HUB_ACCESS_TOKEN}}
-#
-#      - name: Push to dockerhub
-#        uses: docker/build-push-action@v3
-#        with:
-#          context: .
-#          dockerfile: Dockerfile
-#          push: true
-#          tags: ${{secret.DOCKER_HUB_USERNAME}}/test-task:1.0
+      - name: Build docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          dockerfile: Dockerfile
+          push: false
+          tags: ${{secret.DOCKER_HUB_USERNAME}}/test-task:1.0
+
+
+      - name: Login to dockerhub
+        uses: docker/login-action@v3
+        with:
+          username: ${{secret.DOCKER_HUB_USERNAME}}
+          password: ${{secret.DOCKER_HUB_ACCESS_TOKEN}}
+
+      - name: Push to dockerhub
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          dockerfile: Dockerfile
+          push: true
+          tags: ${{secret.DOCKER_HUB_USERNAME}}/test-task:1.0
