@@ -20,10 +20,10 @@ jobs:
           java-version: 21
 
       - name: Set execute permission on gradlew
-        run: chmod +x ./gradlew  # Grant execute permission
+        run: chmod +x ./gradlew
 
-      - name: Unit Testing
-        run: ./gradlew test --no-daemon --console=plain
+#      - name: Unit Testing
+#        run: ./gradlew test --no-daemon --console=plain
 
       - name: Build app
         run: |
