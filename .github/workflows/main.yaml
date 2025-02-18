@@ -23,6 +23,6 @@ jobs:
 #        run: ./gradlew test --no-daemon --console=plain
 
       - name: Build app
-        run:
-          gradlew clean
-          gradlew build --no-daemon --console=plain
+        run: |
+          ./gradlew clean
+          ./gradlew build --no-daemon --console=plain
