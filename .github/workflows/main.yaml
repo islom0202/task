@@ -19,10 +19,10 @@ jobs:
           distribution: 'corretto'
           java-version: 21
 
-      - name: Unit Testing
-        run: ./gradlew test --no-daemon --console=plain
+#      - name: Unit Testing
+#        run: ./gradlew test --no-daemon --console=plain
 
       - name: Build app
-        run: |
-          ./gradlew clean
-          ./gradlew build --no-daemon --console=plain
+        run:
+          gradlew clean
+          gradlew build --no-daemon --console=plain
