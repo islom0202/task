@@ -22,16 +22,13 @@ jobs:
       - name: Set execute permission on gradlew
         run: chmod +x ./gradlew
 
-      - name: Run DB connection
-        env:
-          SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/task
-          SPRING_DATASOURCE_USERNAME: postgres
-          SPRING_DATASOURCE_PASSWORD: 08062002
-        run: ./gradlew test
-
 #      - name: Unit Testing
 #        run: ./gradlew test --no-daemon --console=plain
 
       - name: Build app (without tests)
-        run: ./gradlew clean build -x test
+        env:
+          SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/task
+          SPRING_DATASOURCE_USERNAME: postgres
+          SPRING_DATASOURCE_PASSWORD: 08062002
+        run: ./gradlew clean build #-x test
 
