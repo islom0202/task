@@ -3,7 +3,7 @@ name: Build & Deploy Spring app
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build-deploy:
@@ -19,8 +19,11 @@ jobs:
           distribution: 'corretto'
           java-version: 21
 
-#      - name: Unit Testing
-#        run: ./gradlew test --no-daemon --console=plain
+      - name: Set execute permission on gradlew
+        run: chmod +x ./gradlew  # Grant execute permission
+
+      - name: Unit Testing
+        run: ./gradlew test --no-daemon --console=plain
 
       - name: Build app
         run: |
