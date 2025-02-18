@@ -16,7 +16,7 @@ jobs:
         uses: action/checkout@v4
 
       - name: Setup jdk 21
-        uses: action/setup-java
+        uses: action/setup-java@v3
         with:
           distribution: 'corretto'
           java-version: 21
