@@ -37,7 +37,10 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers(SWAGGER_URLS).permitAll()
-                        .requestMatchers("/api/auth/register", "/api/auth/login").permitAll()
+                        .requestMatchers("/api/auth/register",
+                                "/api/auth/new",
+                                "/api/auth/login",
+                                "/api/auth/get-all/users").permitAll()
                         .requestMatchers("/api/post/create/").hasAnyRole("USER", "ADMIN")
                         .requestMatchers("/api/post/**").hasAnyRole("USER", "ADMIN")
                         .anyRequest().authenticated()

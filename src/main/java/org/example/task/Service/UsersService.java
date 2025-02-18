@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -33,4 +34,7 @@ public class UsersService {
                 .orElseThrow(() -> new RuntimeException("User with ID " + id + " not found"));
     }
 
+    public List<Users> getAllUsers() {
+        return usersRepo.findAll();
+    }
 }

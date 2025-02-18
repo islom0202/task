@@ -1,0 +1,30 @@
+name: Build & Deploy Spring app
+
+on:
+  push:
+    branches:
+      - main
+
+
+
+jobs:
+  build-deploy:
+    name: Build and Deploy Spring app as test
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: action/checkout@v4
+
+      - name: Setup jdk 21
+        uses: action/setup-java
+        with:
+          distribution: 'corretto'
+          java-version: 21
+
+      - name: Unit Testing
+        run: gradle test --no-daemon --console=plain
+
+      - name: Build app
+        uses:
+          gradle clean
+          gradle build --no-daemon --console=plain

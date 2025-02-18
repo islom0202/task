@@ -62,4 +62,5 @@ public class PostController {
                                         @PathVariable("userId") Long userId) {
         return ResponseEntity.ok(postService.delete(postId, userId));
     }
+
 }

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.example.task.Dto.LoginRequest;
 import org.example.task.Dto.RegisterRequest;
+import org.example.task.Entity.Users;
 import org.example.task.JWT.JwtUtil;
 import org.example.task.Service.UsersService;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -46,6 +49,15 @@ public class AuthController {
         return ResponseEntity.ok(new Token(accessToken, refreshToken));
     }
 
+    @GetMapping("/get-all/users")
+    public ResponseEntity<List<Users>> getAllUsers(){
+        return ResponseEntity.ok(usersService.getAllUsers());
+    }
+
+    @GetMapping("/new")
+    public ResponseEntity<String> newTest(){
+        return ResponseEntity.ok("success");
+    }
     @Data
     static class Token{
         private String accessToken;
