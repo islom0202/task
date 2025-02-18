@@ -25,6 +25,6 @@ jobs:
         run: gradle test --no-daemon --console=plain
 
       - name: Build app
-        uses:
+        run:
           gradle clean
           gradle build --no-daemon --console=plain
