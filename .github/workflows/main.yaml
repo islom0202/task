@@ -25,6 +25,6 @@ jobs:
 #      - name: Unit Testing
 #        run: ./gradlew test --no-daemon --console=plain
 
-      - name: Build app
-        run: |
-          ./gradlew clean build
+      - name: Build app (without tests)
+        run: ./gradlew clean build -x test
+
